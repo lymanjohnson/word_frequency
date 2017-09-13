@@ -3,7 +3,7 @@ require('pry')
 class Wordfreq
   STOP_WORDS = ['a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from',
     'has', 'he', 'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to',
-    'were', 'will', 'with', 'she']
+    'were', 'will', 'with']
 
   def initialize(filename)
     @textfile = File.read(filename)
@@ -37,6 +37,9 @@ class Wordfreq
   end
 
   def print_report # top ten words
+    list = top_words(10)
+    list.each {|k,v|
+      puts "#{k}  | #{v} #{"*"*v}"}
     #binding.pry
   end
 end
