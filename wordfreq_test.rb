@@ -7,7 +7,7 @@ end
 
 class WordfreqTest < Minitest::Test
   def test_freq_of_a_word
-    # skip
+    # #skip
     wf = Wordfreq.new fullpath('emancipation_proclamation.txt')
     assert_equal 7, wf.frequency('shall')
     assert_equal 2, wf.frequency('designate')

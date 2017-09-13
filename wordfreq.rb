@@ -7,6 +7,8 @@ class Wordfreq
 
   def initialize(filename)
     @textfile = File.read(filename)
+    # @textfile = File.read("emancipation_proclamation")
+    # @textfile = File.read("seneca_falls")
     wordArray = @textfile.downcase.gsub(/[^a-z ]/, '').split(" ")
     @wordHash = Hash.new
     wordArray.each { |x|
@@ -16,23 +18,25 @@ class Wordfreq
         @wordHash[x].nil? ? @wordHash[x] = 1 : @wordHash[x] += 1
       end
     }
-    binding.pry
+    puts @wordHash
+    # binding.pry
   end
 
   def frequency(word)
-    binding.pry
+    @wordHash[word]
+    #binding.pry
   end
 
   def frequencies
-    binding.pry
+    #binding.pry
   end
 
   def top_words(number)
-    binding.pry
+    #binding.pry
   end
 
   def print_report # top ten words
-    binding.pry
+    #binding.pry
   end
 end
 
