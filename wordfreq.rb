@@ -3,7 +3,7 @@ require('pry')
 class Wordfreq
   STOP_WORDS = ['a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from',
     'has', 'he', 'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to',
-    'were', 'will', 'with']
+    'were', 'will', 'with', 'she']
 
   def initialize(filename)
     @textfile = File.read(filename)
@@ -27,10 +27,12 @@ class Wordfreq
   end
 
   def frequencies
+    @wordHash
     #binding.pry
   end
 
   def top_words(number)
+    @wordHash.sort_by{|k,v| v}.reverse.take(number).map{ |k,v| [k,v]}
     #binding.pry
   end
 
