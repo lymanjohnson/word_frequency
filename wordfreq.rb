@@ -9,7 +9,7 @@ class Wordfreq
     @textfile = File.read(filename)
     # @textfile = File.read("emancipation_proclamation")
     # @textfile = File.read("seneca_falls")
-    wordArray = @textfile.downcase.gsub(/[^a-z ]/, '').split(" ")
+    wordArray = @textfile.downcase.gsub(/[^a-z ]/, ' ').split(" ")
     @wordHash = Hash.new
     wordArray.each { |x|
       if STOP_WORDS.include?(x)
@@ -18,7 +18,7 @@ class Wordfreq
         @wordHash[x].nil? ? @wordHash[x] = 1 : @wordHash[x] += 1
       end
     }
-    puts @wordHash
+    # puts @wordHash
     # binding.pry
   end
 
