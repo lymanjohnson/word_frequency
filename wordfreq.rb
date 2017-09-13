@@ -38,9 +38,13 @@ class Wordfreq
 
   def print_report # top ten words
     list = top_words(10)
+    # puts "their".length
+    maxLength = list.sort_by{ |k,v| -k.length}.map{|k,v| k}.take(1)[0].length
+    # maxlength=list.sort_by{ |k,v| [-k.length]}.take(1).length
+    # puts maxlength
     list.each {|k,v|
-      puts "#{k}  | #{v} #{"*"*v}"}
-    #binding.pry
+      puts "#{" "*(maxLength-k.length)}#{k}  | #{v} #{"*"*v}"}
+    # binding.pry
   end
 end
 
