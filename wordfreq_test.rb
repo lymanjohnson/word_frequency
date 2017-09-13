@@ -18,7 +18,7 @@ class WordfreqTest < Minitest::Test
   end
 
   def test_word_not_present_has_freq_of_0
-    skip
+    # skip
     wf = Wordfreq.new fullpath('seneca_falls.txt')
     assert_equal 0, wf.frequency('computer')
   end
