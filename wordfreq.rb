@@ -1,21 +1,38 @@
+require('pry')
+
 class Wordfreq
   STOP_WORDS = ['a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from',
     'has', 'he', 'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to',
     'were', 'will', 'with']
 
   def initialize(filename)
+    @textfile = File.read(filename)
+    wordArray = @textfile.downcase.gsub(/[^a-z ]/, '').split(" ")
+    @wordHash = Hash.new
+    wordArray.each { |x|
+      if STOP_WORDS.include?(x)
+        # skip
+      else
+        @wordHash[x].nil? ? @wordHash[x] = 1 : @wordHash[x] += 1
+      end
+    }
+    binding.pry
   end
 
   def frequency(word)
+    binding.pry
   end
 
   def frequencies
+    binding.pry
   end
 
   def top_words(number)
+    binding.pry
   end
 
-  def print_report
+  def print_report # top ten words
+    binding.pry
   end
 end
 
