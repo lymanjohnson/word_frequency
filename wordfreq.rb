@@ -32,7 +32,7 @@ class Wordfreq
   end
 
   def top_words(number)
-    @wordHash.sort_by{|k,v| v}.reverse.take(number).map{ |k,v| [k,v]}
+    @wordHash.sort_by{|k,v| [-v,k]}.take(number).map{ |k,v| [k,v]}
     #binding.pry
   end
 
